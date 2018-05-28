@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<section class="container">
+    <div id="chatapp" class="msger col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <header class="msger-header">
+                    <h1>Chat App</h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <todo-items :chat-array="senderArray" inline-template>
+                <div class="msger-chat right-chat">
+                    <div v-for="(item, index) in chatArray" class="message-container">
+                        <h5 v-html="item.message" class="message">Welcome</h5>
+                        <br>
+                        <h6 v-html="item.name" class="name">Rups</h6>
+                    </div>
+                </div>
+            </todo-items>
+        </div>
+        <div class="row">
+            <todo-items :chat-array="reciverArray" inline-template>
+                <div class="msger-chat left-chat">
+                    <div v-for="(item, index) in chatArray" class="message-container">
+                        <h5 v-html="item.message" class="message">Welcome</h5>
+                        <br>
+                        <h6 v-html="item.name" class="name">Rups</h6>
+                    </div>
+                </div>
+            </todo-items>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form class="msger-inputarea">
+                    <input type="text" class="msger-input" placeholder="Enter your message...">
+                    <button type="submit" class="msger-send-btn">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    Vue.component("todo-items", {
+        props: ["chatArray"]
+    });
+    var chatapp = new Vue({
+        el: "#chatapp",
+        data: {
+            senderArray: [{
+                message: "Welcome Sharad",
+                name: "Rupesh"
+            }],
+            reciverArray: [{
+                message: "Hello Rupesh",
+                name: "sharad"
+            }],
+            chats: []
+        }
+        //   mounted: function() {
+        //     var socket = io.connect();
+        //     $scope.send = function () {
+        //       socket.emit('chat message', $scope.message);
+        //       $scope.message = "";
+        //     }
+        //     socket.on('chat message', function (msg) {
+        //       var li = document.createElement("li");
+        //       li.appendChild(document.createTextNode(msg));
+        //       document.getElementById("messages").appendChild(li);
+        //     });
+        //   }
+    });
+</script>
+<script src="script/server.js"></script>
+
+</html>
