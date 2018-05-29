@@ -1,7 +1,13 @@
-  var app = require('express')();
+const express = require('express');
+  // var app = require('express')();
+  const app = express()
   var http = require('http').Server(app);
   var io = require('socket.io')(http);
+  
 
+const port = process.env.PORT || 3000;
+
+app.use(express.static('public'));
 
   app.get('/', function (req, res) {
     // process.chdir("../");
@@ -18,6 +24,7 @@
       console.log('user disconnected');
     });
   });
-  http.listen(3000, function () {
-    console.log('listening on *:3000');
+  
+http.listen(port, function () {
+  console.log('listening on *:'+ port);
   });

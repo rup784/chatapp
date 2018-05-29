@@ -8,7 +8,7 @@
   socket.on('chat message', function(msg){
    var li=document.createElement("li");
    li.appendChild(document.createTextNode(msg));
-   document.getElementById("messages").appendChild(li);
+   document.getElementById("senderArray").appendChild(li);
   });
 
 })();
