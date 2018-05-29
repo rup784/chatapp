@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Chat App</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link type="text/html" rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -67,20 +67,7 @@
             }],
             chats: []
         }
-        //   mounted: function() {
-        //     var socket = io.connect();
-        //     $scope.send = function () {
-        //       socket.emit('chat message', $scope.message);
-        //       $scope.message = "";
-        //     }
-        //     socket.on('chat message', function (msg) {
-        //       var li = document.createElement("li");
-        //       li.appendChild(document.createTextNode(msg));
-        //       document.getElementById("messages").appendChild(li);
-        //     });
-        //   }
     });
 </script>
-<script src="script/server.js"></script>
-
+<script src="/script/app.js"></script>
 </html>
